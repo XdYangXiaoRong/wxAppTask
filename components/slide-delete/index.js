@@ -6,25 +6,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // animation: {
-    //   type: Boolean,
-    //   value: true,
-    //   observer(newVal) {
-    //     if(newVal) {
-    //       console.log(99999999,newVal)
-    //       this.setData({
-    //         ifAnimation:newVal
-    //       })
-    //       // this.setData({
-    //       //     ifAnimation: true
-    //       // }, () => {
-    //           // this.setData({
-    //           //     translateX: 0
-    //       //     // })
-    //       // })
-    //     }
-    //   }
-    // },
     itemIndex:{
       type:Number,
       value:0,
@@ -35,6 +16,10 @@ Component({
           })
         }
       }
+    },
+    deleteBtnWth:{//删除按钮的宽度，删除按钮有多宽，左滑时就滑动多远
+      type:Number,
+      value:65
     }
   },
 
@@ -44,9 +29,6 @@ Component({
   data: {
     ifAnimation:false,
     translateX: 0,
-    // animate: false,
-    // buttonWidth:30,//默认的删除按钮的宽度
-    // startX:0,//触摸点的初始位置
     xmove:0,//向左滑动的距离
     moveItem:0
   },
@@ -62,7 +44,8 @@ Component({
       console.log("showDeleteButton",e)
       // let productIndex = e.currentTarget.dataset.productindex
       // this.setXmove(productIndex, -65)
-      this.setXmove(-65)
+      let leftMove=this.data.deleteBtnWth
+      this.setXmove(-leftMove)
     },
 
     /**
@@ -135,21 +118,11 @@ Component({
      * 组件操作事件（此示例只有删除事件，可根据需要增加其他事件）
      */
     handleAction(e) {
-      console.log(23333,this.data.itemIndex)
-      console.log("handleAction",e)
       // var data=e.currentTarget
       var id=this.data.itemIndex;//当前操作项的特殊标记
       this.triggerEvent('action', {
         id:id
       })
-      // this.setData({
-      //   ifAnimation:false
-      // })
-      // setTimeout(()=>{
-      //   this.setData({
-      //     ifAnimation:true
-      //   })
-      // },100)
     }
   },
   ready() {

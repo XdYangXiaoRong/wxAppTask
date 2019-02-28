@@ -2,7 +2,8 @@
 <view class="container">
   <view class="product-list">
     <view class="product-item" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.id}}">
-      <slide-delete itemIndex="{{item.id}}" bindaction="handleSlideDelete" animation="{{index===clickIndex ? true : false}}">
+        <!-- itemIndex 为传入item的唯一性标示，比如订单号之类，deleteBtnWth为删除按钮的宽度（css rpx的一半） -->
+      <slide-delete itemIndex="{{item.id}}" deleteBtnWth="{{50}}" bindaction="handleSlideDelete">
         <!-- slot的内容 start -->
         <view slot="itemDetail">
           <view class="product-item-wrap">

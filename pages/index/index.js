@@ -23,8 +23,7 @@ Page({
         code: 300001,
         amount: 10
       }
-    ],
-    clickIndex:0,//当前正在操作的item
+    ]
   },
   /**
    * slide-delete 删除产品
@@ -32,11 +31,6 @@ Page({
   handleSlideDelete({ detail: { id } }) {
     let productList = this.data.productList
     let productIndex = productList.findIndex(item => item.id = id)
-
-    this.setData({
-      clickIndex:productIndex
-    })
-
     productList.splice(productIndex, 1)
 
     this.setData({

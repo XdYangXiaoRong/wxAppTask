@@ -15,27 +15,6 @@
   background: #fff;
   z-index: 999;
 }
-
-.slide-product-list .slide-product-item {
-  position: relative;
-  width: 100vw;
-  border-bottom: 2rpx solid #E9E9E9;
-  box-sizing: border-box;
-  background: #fff;
-  z-index: 999;
-}
-
-/* .product-list .product-item movable-area {
-  height: 120rpx;
-  width: calc(100vw - 120rpx);
-}
-
-.product-list .product-item movable-view {
-  height: 120rpx;
-  width: 100vw;
-  background: #fff;
-  z-index: 999;
-} */
 .delete-btn {
   position: absolute;
   top: 0;
@@ -50,6 +29,25 @@
   background: #E66671;
   text-align: center;
 }
+/*假如删除按钮的宽度不是120rpx，而是100rpx，那么就要编辑内部movable-area的长度 start*/
+.delete-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; 
+  width: 100rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 120rpx;
+  z-index: 1;
+  background: rgb(157, 102, 230);
+  text-align: center;
+}
+.product-item .deleteItem movable-area{
+  width:calc(100vw - 100rpx);
+}
+/*假如删除按钮的宽度不是120rpx，而是80rpx，那么就要编辑内部movable-area的长度 end*/
 
 .product-list .product-item-wrap {
   position: relative;

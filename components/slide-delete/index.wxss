@@ -1,0 +1,12 @@
+movable-area {
+  height: 120rpx;
+  width: calc(100vw - 120rpx);
+}
+
+movable-view {
+  height: 120rpx;
+  width: 100vw;
+  background: #fff;
+  z-index: 999;
+}
+

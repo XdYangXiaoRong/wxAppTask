@@ -1,0 +1,27 @@
+
+<view class="delete-item">
+  <movable-area>
+    <movable-view out-of-bounds="true" direction="horizontal" x="{{xmove}}" data-xmove="{{xmove}}" data-animation="{{ifAnimation}}"
+      inertia="true"
+      bindtouchstart="handleTouchStart"
+      bindtouchend="handleTouchEnd"
+      bindchange="handleMovableChange"
+      animation="{{ifAnimation}}">
+      <!-- <view class="product-item-wrap">
+        <view class="product-movable-item">
+          <view class="product-movable-item-name">{{item.name}}</view>
+          <view class="product-movable-item-code">{{item.code}}</view>
+        </view>
+        <view class="product-movable-item product-movable-item-amount">
+          <text class="amount">{{item.amount}}</text>
+          <text class="unit">万</text>
+        </view>
+      </view> -->
+      <slot name="itemDetail"></slot>
+    </movable-view>
+  </movable-area>
+ 
+  <!-- 删除按钮样式和事件由外部组件来决定 -->
+  <slot name="deleteBtn" bindtap="handleAction" data-type="del"></slot>
+ 
+</view>

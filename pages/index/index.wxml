@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="product-list">
+    <view class="product-item" wx:for="{{productList}}" wx:for-index="index" wx:key="{{item.id}}">
+      <slide-delete itemIndex="{{item.id}}" bindaction="handleSlideDelete" animation="{{index===clickIndex ? true : false}}">
+        <!-- slot的内容 start -->
+        <view slot="itemDetail">
+          <view class="product-item-wrap">
+            <view class="product-movable-item">
+              <view class="product-movable-item-name">{{item.name}}</view>
+              <view class="product-movable-item-code">{{item.code}}</view>
+            </view>
+            <view class="product-movable-item product-movable-item-amount">
+              <text class="amount">{{item.amount}}</text>
+              <text class="unit">万</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 包裹删除按钮的slot -->
+        <view slot="deleteBtn" class="delete-btn" data-id="{{item.id}}">删除</view>
+        <!-- slot的内容 end -->
+      </slide-delete>
+    </view>
+  </view>
+</view>
